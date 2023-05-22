@@ -21,7 +21,7 @@ public class Airline extends JFrame{
 
     public void initialize() {
         frame = new JFrame("MYLOGIN");
-		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 21)); //.getContentPane: muestra en frame capa transparente
+		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 21));
 		frame.getContentPane().setBackground(new Color(255, 153, 204));
 		frame.getContentPane().setForeground(new Color(100, 149, 237));
 		frame.setBounds(100, 100, 866, 452);

@@ -124,15 +124,15 @@ public class Add_Customer extends JFrame{ //Third Frame
             
             Next.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
-                    String passport_No = textField.getText(); //gets text from an object
-                    String pnr_no = textField_1.getText(); //gets text from an object
-                    String address =  textField_2.getText(); //gets text from an object
-                    String nationality = textField_3.getText(); //gets text from an object
-                    String name = textField_4.getText(); //gets text froma an object
-                    String fl_code = textField_6.getText(); //gets text from an object
+                    String passport_No = textField.getText();
+                    String pnr_no = textField_1.getText();
+                    String address =  textField_2.getText();
+                    String nationality = textField_3.getText();
+                    String name = textField_4.getText();
+                    String fl_code = textField_6.getText();
                    
                     String gender = null;
-                    String ph_no = textField_5.getText(); //gets text from an object
+                    String ph_no = textField_5.getText();
                     
                     if(NewRadioButton.isSelected()){
                         gender = "male";

@@ -22,7 +22,7 @@ public class Login extends JFrame implements ActionListener{
         f2 = new Font("TimesRoman",Font.BOLD,15);
 		
         gbl=new GridBagLayout(); 
-	gbc=new GridBagConstraints(); // conteiners
+	gbc=new GridBagConstraints();
         setLayout(gbl); 
 	
         l1 = new Label("Username");
