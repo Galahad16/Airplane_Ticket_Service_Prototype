@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Airline Reservation System Project in Java Source Code.iml" filepath="$PROJECT_DIR$/Airline Reservation System Project in Java Source Code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Reservation_System.iml" filepath="$PROJECT_DIR$/Java_Reservation_System.iml" />
     </modules>
   </component>
 </project>
