@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cancellation` (
-  `pnr_no` varchar(30) NOT NULL,
-  `cancellation_no` varchar(30) NOT NULL,
+  `pnr_no` varchar(15) NOT NULL,
+  `cancellation_no` varchar(15) NOT NULL,
   `cancellation_date` varchar(30) NOT NULL,
-  `fli_code` varchar(30) NOT NULL
+  `flight_code` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -41,18 +41,18 @@ CREATE TABLE `cancellation` (
 --
 
 CREATE TABLE `flight` (
-  `f_code` varchar(30) NOT NULL,
-  `f_name` varchar(30) NOT NULL,
-  `src` varchar(30) NOT NULL,
-  `dst` varchar(30) NOT NULL
+  `flight_code` varchar(15) NOT NULL,
+  `flight_name` varchar(30) NOT NULL,
+  `departure` varchar(30) NOT NULL,
+  `destination` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `flight`
 --
 
-INSERT INTO `flight` (`f_code`, `f_name`, `src`, `dst`) VALUES
-('f1005', 'flight 1005', 'Philippines', 'United States');
+INSERT INTO `flight` (`flight_code`, `flight_name`, `departure`, `destination`) VALUES
+                     ('f1005', 'flight 1005', 'Philippines', 'United States');
 
 -- --------------------------------------------------------
 
@@ -61,15 +61,15 @@ INSERT INTO `flight` (`f_code`, `f_name`, `src`, `dst`) VALUES
 --
 
 CREATE TABLE `login` (
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `email` varchar(128) NOT NULL,
+  `password` v(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
+INSERT INTO `login` (`email`, `password`) VALUES
 ('admin', 'admin');
 
 -- --------------------------------------------------------
@@ -80,21 +80,21 @@ INSERT INTO `login` (`username`, `password`) VALUES
 
 CREATE TABLE `passenger` (
   `pnr_no` varchar(30) NOT NULL,
-  `address` text NOT NULL,
-  `nationality` varchar(30) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `gender` varchar(30) NOT NULL,
-  `ph_no` varchar(30) NOT NULL,
-  `passport_no` varchar(30) NOT NULL,
-  `fl_code` varchar(30) NOT NULL
+  `address` varchar(512) NOT NULL,
+  `nationality` varchar(2) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `passport_no` varchar(15) NOT NULL,
+  `flight_code` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `passenger`
 --
 
-INSERT INTO `passenger` (`pnr_no`, `address`, `nationality`, `name`, `gender`, `ph_no`, `passport_no`, `fl_code`) VALUES
-('11', 'Negros Occidental, Philippines', 'Filipino', '', 'male', '09272777334', 'SAR081119', 'f1005');
+INSERT INTO `passenger` (`pnr_no`, `address`, `nationality`, `name`, `gender`, `phone`, `passport_no`, `fl_code`)
+VALUES                  ('11', 'Negros Occidental, Philippines', 'Filipino', '', 'male', '09272777334', 'SAR081119', 'f1005');
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ INSERT INTO `passenger` (`pnr_no`, `address`, `nationality`, `name`, `gender`, `
 
 CREATE TABLE `payment` (
   `pnr_no` varchar(30) NOT NULL,
-  `ph_no` varchar(30) NOT NULL,
+  `phone_no` varchar(30) NOT NULL,
   `cheque_no` varchar(30) NOT NULL,
   `card_no` varchar(30) NOT NULL,
   `paid_amt` varchar(30) NOT NULL,
@@ -115,8 +115,8 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`pnr_no`, `ph_no`, `cheque_no`, `card_no`, `paid_amt`, `pay_date`) VALUES
-('11', '09272777334', '1222', '121-121', '1000', '2022-05-05');
+INSERT INTO `payment` (`pnr_no`, `ph_no`, `cheque_no`, `card_no`, `paid_amt`, `pay_date`)
+ VALUES               ('11', '09272777334', '1222', '121-121', '1000', '2022-05-05');
 
 -- --------------------------------------------------------
 
@@ -127,19 +127,19 @@ INSERT INTO `payment` (`pnr_no`, `ph_no`, `cheque_no`, `card_no`, `paid_amt`, `p
 CREATE TABLE `reservation` (
   `pnr_no` varchar(30) NOT NULL,
   `ticket_id` varchar(30) NOT NULL,
-  `f_code` varchar(30) NOT NULL,
-  `jny_date` varchar(30) NOT NULL,
-  `jny_time` varchar(30) NOT NULL,
-  `src` varchar(30) NOT NULL,
-  `dst` varchar(30) NOT NULL
+  `flight_code` varchar(30) NOT NULL,
+  `dep_date` varchar(30) NOT NULL,
+  `dep_time` varchar(30) NOT NULL,
+  `departure` varchar(30) NOT NULL,
+  `destination` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`pnr_no`, `ticket_id`, `f_code`, `jny_date`, `jny_time`, `src`, `dst`) VALUES
-('11', '111', 'f1005', '2022-05-05', '1:00 PM', 'Philippines', 'United States');
+INSERT INTO `reservation` (`pnr_no`, `ticket_id`, `flight_code`, `dep_date`, `dep_time`, `departure`, `destination`)
+VALUES                        ('11', '111', 'f1005', '2022-05-05', '1:00 PM', 'Philippines', 'United States');
 
 -- --------------------------------------------------------
 
